@@ -18,10 +18,16 @@ namespace SalesWebMvc.Services
             _context = context;
         }
 
-        public async Task<List<Seller>> FindAllAssync()
+        public List<Seller> FindAll()
        {
-            return await _context.Seller.ToListAsync();
+            return  _context.Seller.ToList();
          
+        }
+
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
         }
     }
 }
